@@ -1,20 +1,20 @@
 let modInfo = {
-	name: "The ??? Tree",
-	id: "mymod",
-	author: "nobody",
+	name: "The 1000th Tree",
+	id: "1000th",
+	author: "ArcanaEden",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	offlineLimit: 1000,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.1000",
+	name: "The Beginning of the 1000.",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -51,7 +51,7 @@ function addedPlayerData() { return {
 }}
 
 // Display extra things at the top of the page
-var displayThings = [
+var displayThings = [() => `You have <h2>${format(player.points)}</h2> points.`
 ]
 
 // Determines when the game "ends"
@@ -62,7 +62,7 @@ function isEndgame() {
 
 
 // Less important things beyond this point!
-
+function colored(layer, text, tag='h2') { return `<${tag} style='color:${temp[layer].color};text-shadow:${temp[layer].color} 0px 0px 10px;'>${text}</${tag}>` }
 // Style for the background, can be a function
 var backgroundStyle = {
 

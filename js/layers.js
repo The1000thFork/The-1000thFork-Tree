@@ -20,9 +20,10 @@ addLayer("p", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-    row: 0, // Row the layer is in on the tree (0 is the first row)
-    hotkeys: [
-        {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+    tabFormat: [
+        "main-display",
+        ["raw-html", function() {if (hasMilestone("f",9)) return "You are gaining " + layerText("h2", "p", format(tmp.p.getResetGain)) + " prestige points per second"}],
     ],
+    row: 0, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true}
 })
